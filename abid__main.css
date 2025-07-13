@@ -1,0 +1,462 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Rammetto+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@400..800&family=Boldonse&family=Hind+Siliguri&family=Noto+Serif+Bengali:wght@100..900&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Poppins&display=swap");
+@import url("https://fonts.maateen.me/ekushey-lohit/font.css");
+
+body {
+  background: linear-gradient(135deg, #1a2a6c, #2d5f91, #3a7ca5);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  font-family: "Poppins", "Hind Siliguri", "Segoe UI", Tahoma, Geneva,
+    "Shonar Bangla";
+}
+
+.container {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 500px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+.container:hover {
+  transform: translateY(-5px);
+}
+
+header {
+  background: linear-gradient(135deg, #2d5f91, #1a2a6c);
+  color: white;
+  padding: 30px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+header::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0) 70%
+  );
+  transform: rotate(30deg);
+}
+
+h1 {
+  font-family: "Rammetto One";
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+  position: relative;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+h1 p {
+  font-family: "Rammetto One";
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  position: relative;
+}
+
+.content {
+  padding: 30px;
+}
+
+.service-section {
+  margin-bottom: 25px;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.section-title {
+  font-size: 1.2rem;
+  color: #2d5f91;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+}
+
+.section-title i {
+  margin-right: 12px;
+  font-size: 1.4rem;
+  color: #3a7ca5;
+}
+
+.service-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 5px;
+}
+
+.service-btn {
+  background: #f0f5f9;
+  border: 2px solid #d1e0ed;
+  border-radius: 12px;
+  padding: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  flex: 1;
+  min-width: 100px;
+  text-align: center;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #2d5f91;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.service-btn.active {
+  background: #2d5f91;
+  color: white;
+  border-color: #2d5f91;
+  box-shadow: 0 6px 12px rgba(45, 95, 145, 0.3);
+  transform: translateY(-3px);
+}
+
+.service-btn i {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.more-options {
+  position: relative;
+  display: inline-block;
+  flex: 1;
+}
+
+.more-btn {
+  background: #f0f5f9;
+  border: 2px solid #d1e0ed;
+  border-radius: 12px;
+  padding: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  min-width: 100px;
+  text-align: center;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #2d5f91;
+  width: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.more-btn:hover,
+.more-btn.active {
+  transition: 1s ease;
+  background: #2d5f91;
+  color: white;
+  border-color: #2d5f91;
+}
+
+.more-btn:hover .rotateIt {
+  transition: 0.7s ease;
+  transform: rotate(90deg);
+  -ms-transform: rotate(90deg); /*  for IE  */
+  /* 	for browsers supporting webkit (such as chrome, firefox, safari etc.). */
+  -webkit-transform: rotate(90deg);
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background: white;
+  width: 100%;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
+  z-index: 100;
+  top: 100%;
+  left: 0;
+  margin-top: 8px;
+  overflow: hidden;
+}
+
+.dropdown-content.show {
+  display: block;
+  animation: slideDown 0.3s ease-out;
+}
+
+.dropdown-option {
+  padding: 15px;
+  cursor: pointer;
+  transition: background 0.2s;
+  display: flex;
+  align-items: center;
+  color: #2d5f91;
+  font-weight: 500;
+}
+
+.dropdown-option:hover {
+  background: #f0f7ff;
+}
+
+.dropdown-option i {
+  font-size: 1.5rem;
+  margin-right: 12px;
+  width: 30px;
+  text-align: center;
+}
+
+.agent-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.agent-btn {
+  background: #f0f5f9;
+  border: 2px solid #d1e0ed;
+  border-radius: 10px;
+  padding: 12px 15px;
+  font-weight: 500;
+  cursor: pointer;
+  flex: 1;
+  min-width: 100px;
+  text-align: center;
+  transition: all 0.3s ease;
+  color: #2d5f91;
+}
+
+.agent-btn.active {
+  background: #3a7ca5;
+  color: white;
+  border-color: #3a7ca5;
+  box-shadow: 0 4px 8px rgba(58, 124, 165, 0.3);
+}
+
+.input-section {
+  margin: 30px 0;
+  animation: fadeIn 0.6s ease-out;
+}
+
+.input-container {
+  position: relative;
+  margin-top: 15px;
+}
+
+.currency {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-weight: bold;
+  color: #2d5f91;
+  font-size: 1.4rem;
+}
+
+input {
+  width: 100%;
+  padding: 18px 20px 18px 60px;
+  border: 2px solid #d1e0ed;
+  border-radius: 15px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  transition: all 0.3s;
+  color: #2d5f91;
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+input:focus {
+  outline: none;
+  border-color: #3a7ca5;
+  box-shadow: 0 0 0 3px rgba(58, 124, 165, 0.2);
+}
+
+input::placeholder {
+  color: #a0c0d8;
+  font-weight: 500;
+}
+
+.calculate-btn {
+  font-family: "Baloo Da 2";
+  background: linear-gradient(135deg, #2d5f91, #1a2a6c);
+  color: white;
+  border: none;
+  border-radius: 1.9rem;
+  padding: 1.1rem;
+  font-size: 1.3rem;
+  font-weight: 700;
+  width: 100%;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 6px 15px rgba(45, 95, 145, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.calculate-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(45, 95, 145, 0.5);
+}
+
+.calculate-btn:active {
+  transform: translateY(1px);
+}
+
+.calculate-btn::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 40px;
+  height: 200%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: rotate(25deg);
+  transition: all 0.6s;
+}
+
+.calculate-btn:hover::after {
+  left: 120%;
+}
+
+.result-container {
+  background: linear-gradient(135deg, #e8f4ff, #d1e8ff);
+  border-radius: 15px;
+  padding: 25px;
+  margin-top: 30px;
+  text-align: center;
+  display: none;
+  animation: fadeIn 0.5s ease-out;
+  border: 2px dashed #3a7ca5;
+}
+
+.result-title {
+  color: #2d5f91;
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.result-amount {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #1a2a6c;
+  margin: 10px 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.result-details {
+  margin-top: 15px;
+  color: #2d5f91;
+  font-size: 1.1rem;
+  font-weight: 500;
+  background: rgba(255, 255, 255, 0.6);
+  padding: 12px;
+  border-radius: 10px;
+}
+
+.error-message {
+  font-family: "Noto Serif Bengali", serif;
+  color: #e74c3c;
+  font-size: 1rem;
+  margin-top: 0.9rem;
+  height: auto;
+  font-weight: bold;
+  display: none;
+  text-align: center;
+  padding: 0.33rem;
+  border-radius: 0.5rem;
+  background: rgba(231, 76, 60, 0.1);
+}
+
+.error-message.show {
+  display: block;
+  animation: shake 0.5s;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  color: #7f9cb5;
+  font-size: 0.95rem;
+  border-top: 1px solid #e9f2fa;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  20%,
+  60% {
+    transform: translateX(-8px);
+  }
+  40%,
+  80% {
+    transform: translateX(8px);
+  }
+}
+
+@media (max-width: 480px) {
+  .content {
+    padding: 20px;
+  }
+
+  .service-btn,
+  .agent-btn,
+  .more-btn {
+    min-width: 80px;
+    padding: 12px;
+    font-size: 0.95rem;
+  }
+
+  input {
+    padding: 15px 15px 15px 50px;
+    font-size: 1.1rem;
+  }
+
+  .result-amount {
+    font-size: 2rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+}
+
+/*Adding fonts*/
+/* @import url("https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@400..800&family=Boldonse&family=Hind+Siliguri&family=Noto+Serif+Bengali:wght@100..900&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Poppins&display=swap");
+@import url("https://fonts.maateen.me/ekushey-lohit/font.css"); */
